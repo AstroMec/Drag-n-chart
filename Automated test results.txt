@@ -1,0 +1,75 @@
+Group Name: Drag n chart core test
+Duration: 0:02:17.475
+0 test(s) failed
+0 test(s) skipped
+6 test(s) passed
+
+
+	Group Name: ExcelTests
+	Duration: 0:01:12.816
+	0 test(s) failed
+	0 test(s) skipped
+	4 test(s) passed
+
+		Test Name:	GetAllSheetDataTest
+		Test FullName:	Drag n chart core test.Drag_n_chart_core_test.ExcelTests.GetAllSheetDataTest
+		Test Source:	C:\Users\maxgr\OneDrive\Documents\Fiverr\C#\Drag n chart\Drag n chart core test\ExcelTests.cs : line 67
+		Test Outcome:	Passed
+		Test Duration:	0:00:00
+
+		Test Name:	GetAllSheetDataTest
+		Test Outcome:	Passed
+		
+		
+		Test Name:	OpeningAndShowing
+		Test FullName:	Drag n chart core test.Drag_n_chart_core_test.ExcelTests.OpeningAndShowing
+		Test Source:	C:\Users\maxgr\OneDrive\Documents\Fiverr\C#\Drag n chart\Drag n chart core test\ExcelTests.cs : line 37
+		Test Outcome:	Passed
+		Test Duration:	0:00:00
+
+		Test Name:	OpeningAndShowing
+		Test Outcome:	Passed
+
+
+		Test Name:	OpeningAndShowing2
+		Test FullName:	Drag n chart core test.Drag_n_chart_core_test.ExcelTests.OpeningAndShowing2
+		Test Source:	C:\Users\maxgr\OneDrive\Documents\Fiverr\C#\Drag n chart\Drag n chart core test\ExcelTests.cs : line 51
+		Test Outcome:	Passed
+		Test Duration:	0:00:00
+
+		Test Name:	OpeningAndShowing2
+		Test Outcome:	Passed
+		
+		Test Name:	OpeningTest2
+		Test FullName:	Drag n chart core test.Drag_n_chart_core_test.ExcelTests.OpeningTest2
+		Test Source:	C:\Users\maxgr\OneDrive\Documents\Fiverr\C#\Drag n chart\Drag n chart core test\ExcelTests.cs : line 18
+		Test Outcome:	Passed
+		Test Duration:	0:00:00
+
+		Test Name:	OpeningTest2
+		Test Outcome:	Passed
+		
+		
+	Group Name: ProjectTests
+	Duration: 0:01:04.659
+	0 test(s) failed
+	0 test(s) skipped
+	2 test(s) passed
+	
+		Test Name:	OpeningProject
+		Test FullName:	Drag n chart core test.Drag_n_chart_core_test.ProjectTests.OpeningProject
+		Test Source:	C:\Users\maxgr\OneDrive\Documents\Fiverr\C#\Drag n chart\Drag n chart core test\ProjectTests.cs : line 20
+		Test Outcome:	Passed
+		Test Duration:	0:00:00
+
+		Test Name:	OpeningProject
+		Test Outcome:	Passed
+		
+		Test Name:	SavingProjects
+		Test FullName:	Drag n chart core test.Drag_n_chart_core_test.ProjectTests.SavingProjects
+		Test Source:	C:\Users\maxgr\OneDrive\Documents\Fiverr\C#\Drag n chart\Drag n chart core test\ProjectTests.cs : line 11
+		Test Outcome:	Passed
+		Test Duration:	0:00:00
+
+		Test Name:	SavingProjects
+		Test Outcome:	Passed
