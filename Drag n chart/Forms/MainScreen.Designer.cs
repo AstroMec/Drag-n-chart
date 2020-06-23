@@ -45,6 +45,7 @@
             System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,6 +67,7 @@
             this.niToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sO42ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.dataLabelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -147,6 +149,7 @@
             this.niToolStripMenuItem,
             this.feToolStripMenuItem,
             this.sO42ToolStripMenuItem,
+            this.viewAllToolStripMenuItem,
             this.toolStripSeparator1,
             this.dataLabelsToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
@@ -158,7 +161,7 @@
             this.pHToolStripMenuItem.Checked = true;
             this.pHToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.pHToolStripMenuItem.Name = "pHToolStripMenuItem";
-            this.pHToolStripMenuItem.Size = new System.Drawing.Size(266, 44);
+            this.pHToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
             this.pHToolStripMenuItem.Text = "pH";
             this.pHToolStripMenuItem.Click += new System.EventHandler(this.pHToolStripMenuItem_Click);
             // 
@@ -167,7 +170,7 @@
             this.ehToolStripMenuItem.Checked = true;
             this.ehToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ehToolStripMenuItem.Name = "ehToolStripMenuItem";
-            this.ehToolStripMenuItem.Size = new System.Drawing.Size(266, 44);
+            this.ehToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
             this.ehToolStripMenuItem.Text = "Eh";
             this.ehToolStripMenuItem.Click += new System.EventHandler(this.ehToolStripMenuItem_Click);
             // 
@@ -176,7 +179,7 @@
             this.densityToolStripMenuItem.Checked = true;
             this.densityToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.densityToolStripMenuItem.Name = "densityToolStripMenuItem";
-            this.densityToolStripMenuItem.Size = new System.Drawing.Size(266, 44);
+            this.densityToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
             this.densityToolStripMenuItem.Text = "Density";
             this.densityToolStripMenuItem.Click += new System.EventHandler(this.densityToolStripMenuItem_Click);
             // 
@@ -185,7 +188,7 @@
             this.dOToolStripMenuItem.Checked = true;
             this.dOToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.dOToolStripMenuItem.Name = "dOToolStripMenuItem";
-            this.dOToolStripMenuItem.Size = new System.Drawing.Size(266, 44);
+            this.dOToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
             this.dOToolStripMenuItem.Text = "DO";
             this.dOToolStripMenuItem.Click += new System.EventHandler(this.dOToolStripMenuItem_Click);
             // 
@@ -194,7 +197,7 @@
             this.tatmToolStripMenuItem.Checked = true;
             this.tatmToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tatmToolStripMenuItem.Name = "tatmToolStripMenuItem";
-            this.tatmToolStripMenuItem.Size = new System.Drawing.Size(266, 44);
+            this.tatmToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
             this.tatmToolStripMenuItem.Text = "T-atm";
             this.tatmToolStripMenuItem.Click += new System.EventHandler(this.tatmToolStripMenuItem_Click);
             // 
@@ -203,7 +206,7 @@
             this.twatToolStripMenuItem.Checked = true;
             this.twatToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.twatToolStripMenuItem.Name = "twatToolStripMenuItem";
-            this.twatToolStripMenuItem.Size = new System.Drawing.Size(266, 44);
+            this.twatToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
             this.twatToolStripMenuItem.Text = "T-wat";
             this.twatToolStripMenuItem.Click += new System.EventHandler(this.twatToolStripMenuItem_Click);
             // 
@@ -212,7 +215,7 @@
             this.agToolStripMenuItem.Checked = true;
             this.agToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.agToolStripMenuItem.Name = "agToolStripMenuItem";
-            this.agToolStripMenuItem.Size = new System.Drawing.Size(266, 44);
+            this.agToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
             this.agToolStripMenuItem.Text = "Ag";
             this.agToolStripMenuItem.Click += new System.EventHandler(this.agToolStripMenuItem_Click);
             // 
@@ -221,7 +224,7 @@
             this.auToolStripMenuItem.Checked = true;
             this.auToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.auToolStripMenuItem.Name = "auToolStripMenuItem";
-            this.auToolStripMenuItem.Size = new System.Drawing.Size(266, 44);
+            this.auToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
             this.auToolStripMenuItem.Text = "Au";
             this.auToolStripMenuItem.Click += new System.EventHandler(this.auToolStripMenuItem_Click);
             // 
@@ -230,14 +233,14 @@
             this.clToolStripMenuItem.Checked = true;
             this.clToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.clToolStripMenuItem.Name = "clToolStripMenuItem";
-            this.clToolStripMenuItem.Size = new System.Drawing.Size(266, 44);
+            this.clToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
             this.clToolStripMenuItem.Text = "Cl-";
             this.clToolStripMenuItem.Click += new System.EventHandler(this.clToolStripMenuItem_Click);
             // 
             // cl2ToolStripMenuItem
             // 
             this.cl2ToolStripMenuItem.Name = "cl2ToolStripMenuItem";
-            this.cl2ToolStripMenuItem.Size = new System.Drawing.Size(266, 44);
+            this.cl2ToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
             this.cl2ToolStripMenuItem.Text = "Cl2";
             this.cl2ToolStripMenuItem.Click += new System.EventHandler(this.cl2ToolStripMenuItem_Click);
             // 
@@ -246,7 +249,7 @@
             this.coToolStripMenuItem.Checked = true;
             this.coToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.coToolStripMenuItem.Name = "coToolStripMenuItem";
-            this.coToolStripMenuItem.Size = new System.Drawing.Size(266, 44);
+            this.coToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
             this.coToolStripMenuItem.Text = "Co";
             this.coToolStripMenuItem.Click += new System.EventHandler(this.coToolStripMenuItem_Click);
             // 
@@ -255,7 +258,7 @@
             this.cuToolStripMenuItem.Checked = true;
             this.cuToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cuToolStripMenuItem.Name = "cuToolStripMenuItem";
-            this.cuToolStripMenuItem.Size = new System.Drawing.Size(266, 44);
+            this.cuToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
             this.cuToolStripMenuItem.Text = "Cu";
             this.cuToolStripMenuItem.Click += new System.EventHandler(this.cuToolStripMenuItem_Click);
             // 
@@ -264,35 +267,41 @@
             this.niToolStripMenuItem.Checked = true;
             this.niToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.niToolStripMenuItem.Name = "niToolStripMenuItem";
-            this.niToolStripMenuItem.Size = new System.Drawing.Size(266, 44);
+            this.niToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
             this.niToolStripMenuItem.Text = "Ni";
             this.niToolStripMenuItem.Click += new System.EventHandler(this.niToolStripMenuItem_Click);
             // 
             // feToolStripMenuItem
             // 
             this.feToolStripMenuItem.Name = "feToolStripMenuItem";
-            this.feToolStripMenuItem.Size = new System.Drawing.Size(266, 44);
+            this.feToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
             this.feToolStripMenuItem.Text = "Fe";
             this.feToolStripMenuItem.Click += new System.EventHandler(this.feToolStripMenuItem_Click);
             // 
             // sO42ToolStripMenuItem
             // 
             this.sO42ToolStripMenuItem.Name = "sO42ToolStripMenuItem";
-            this.sO42ToolStripMenuItem.Size = new System.Drawing.Size(266, 44);
+            this.sO42ToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
             this.sO42ToolStripMenuItem.Text = "SO4 (2-)";
             this.sO42ToolStripMenuItem.Click += new System.EventHandler(this.sO42ToolStripMenuItem_Click);
+            // 
+            // viewAllToolStripMenuItem
+            // 
+            this.viewAllToolStripMenuItem.Name = "viewAllToolStripMenuItem";
+            this.viewAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.viewAllToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
+            this.viewAllToolStripMenuItem.Text = "View all";
+            this.viewAllToolStripMenuItem.Click += new System.EventHandler(this.viewAllToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(263, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(311, 6);
             // 
             // dataLabelsToolStripMenuItem
             // 
-            this.dataLabelsToolStripMenuItem.Checked = true;
-            this.dataLabelsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.dataLabelsToolStripMenuItem.Name = "dataLabelsToolStripMenuItem";
-            this.dataLabelsToolStripMenuItem.Size = new System.Drawing.Size(266, 44);
+            this.dataLabelsToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
             this.dataLabelsToolStripMenuItem.Text = "Data labels";
             this.dataLabelsToolStripMenuItem.Click += new System.EventHandler(this.dataLabelsToolStripMenuItem_Click);
             // 
@@ -355,6 +364,7 @@
             chartArea1.AxisY.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
             chartArea1.AxisY.MinorGrid.Enabled = true;
             chartArea1.AxisY.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
+            chartArea1.AxisY2.Title = "Cl-, Fe and Sulfate";
             chartArea1.Name = "ChartArea1";
             this.mainChart.ChartAreas.Add(chartArea1);
             this.mainChart.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -365,7 +375,6 @@
             this.mainChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.IsValueShownAsLabel = true;
             series1.LabelToolTip = "#VALX";
             series1.Legend = "Legend1";
             series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
@@ -373,7 +382,6 @@
             series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.IsValueShownAsLabel = true;
             series2.LabelToolTip = "#VALX";
             series2.Legend = "Legend1";
             series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
@@ -381,7 +389,6 @@
             series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.IsValueShownAsLabel = true;
             series3.LabelToolTip = "#VALX";
             series3.Legend = "Legend1";
             series3.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
@@ -389,7 +396,6 @@
             series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             series4.ChartArea = "ChartArea1";
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.IsValueShownAsLabel = true;
             series4.LabelToolTip = "#VALX";
             series4.Legend = "Legend1";
             series4.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
@@ -397,7 +403,6 @@
             series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             series5.ChartArea = "ChartArea1";
             series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.IsValueShownAsLabel = true;
             series5.LabelToolTip = "#VALX";
             series5.Legend = "Legend1";
             series5.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
@@ -405,7 +410,6 @@
             series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             series6.ChartArea = "ChartArea1";
             series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.IsValueShownAsLabel = true;
             series6.LabelToolTip = "#VALX";
             series6.Legend = "Legend1";
             series6.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
@@ -413,7 +417,6 @@
             series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             series7.ChartArea = "ChartArea1";
             series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series7.IsValueShownAsLabel = true;
             series7.LabelToolTip = "#VALX";
             series7.Legend = "Legend1";
             series7.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
@@ -421,7 +424,6 @@
             series7.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             series8.ChartArea = "ChartArea1";
             series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series8.IsValueShownAsLabel = true;
             series8.LabelToolTip = "#VALX";
             series8.Legend = "Legend1";
             series8.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
@@ -430,16 +432,15 @@
             series9.ChartArea = "ChartArea1";
             series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series9.Enabled = false;
-            series9.IsValueShownAsLabel = true;
             series9.LabelToolTip = "#VALX";
             series9.Legend = "Legend1";
             series9.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
             series9.Name = "Cl- (ppm)";
             series9.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series9.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
             series10.ChartArea = "ChartArea1";
             series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series10.Enabled = false;
-            series10.IsValueShownAsLabel = true;
             series10.LabelToolTip = "#VALX";
             series10.Legend = "Legend1";
             series10.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
@@ -447,7 +448,6 @@
             series10.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             series11.ChartArea = "ChartArea1";
             series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series11.IsValueShownAsLabel = true;
             series11.LabelToolTip = "#VALX";
             series11.Legend = "Legend1";
             series11.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
@@ -455,7 +455,6 @@
             series11.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             series12.ChartArea = "ChartArea1";
             series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series12.IsValueShownAsLabel = true;
             series12.LabelToolTip = "#VALX";
             series12.Legend = "Legend1";
             series12.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
@@ -463,7 +462,6 @@
             series12.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             series13.ChartArea = "ChartArea1";
             series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series13.IsValueShownAsLabel = true;
             series13.LabelToolTip = "#VALX";
             series13.Legend = "Legend1";
             series13.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
@@ -472,21 +470,21 @@
             series14.ChartArea = "ChartArea1";
             series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series14.Enabled = false;
-            series14.IsValueShownAsLabel = true;
             series14.LabelToolTip = "#VALX";
             series14.Legend = "Legend1";
             series14.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
             series14.Name = "Fe (ppm)";
             series14.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series14.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
             series15.ChartArea = "ChartArea1";
             series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series15.Enabled = false;
-            series15.IsValueShownAsLabel = true;
             series15.LabelToolTip = "#VALX";
             series15.Legend = "Legend1";
             series15.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
             series15.Name = "SO4 (2- ions) (ppm)";
             series15.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series15.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
             this.mainChart.Series.Add(series1);
             this.mainChart.Series.Add(series2);
             this.mainChart.Series.Add(series3);
@@ -505,6 +503,11 @@
             this.mainChart.Size = new System.Drawing.Size(1645, 1022);
             this.mainChart.TabIndex = 1;
             this.mainChart.Text = "chart1";
+            title1.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
+            title1.Name = "mainTitle";
+            title1.Text = "[Selected sheet]";
+            title1.ToolTip = "Selected sheet";
+            this.mainChart.Titles.Add(title1);
             this.mainChart.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainScreen_DragDrop);
             this.mainChart.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainScreen_DragEnter);
             // 
@@ -592,5 +595,6 @@
         private System.Windows.Forms.SaveFileDialog exportPictureDialog;
         private System.Windows.Forms.SaveFileDialog saveProjectDialog;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewAllToolStripMenuItem;
     }
 }

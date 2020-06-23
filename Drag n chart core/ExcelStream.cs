@@ -103,6 +103,10 @@ namespace Drag_n_chart_core
         /// </summary>
         public int? SelectedSheetIndex { get; set; } = null;
 
+        private TempCommentHolders Comments { get; set; }
+        #endregion
+
+        #region Constructors
         /// <summary>
         /// This contructor opens the file in the program.
         /// </summary>
@@ -111,61 +115,64 @@ namespace Drag_n_chart_core
         {
             Path = filePath;
             Workbook = ExcelApp.Workbooks.Open(Path);
-        } 
-        #endregion
-
+            Comments = new TempCommentHolders(this);
+        }
         public ExcelStream()
         {
         }
+        #endregion
 
-		/// <summary>
-		/// Note to dev: remember that the index starts from 1 NOT 0!
-		/// </summary>
-		/// <param name="index">Index is the index of the sheet.</param>
-		/// <returns></returns>
-		public _Worksheet this[int index]
-		{
-			get
-			{
-				if (index > 0)
-				{
-					return (_Worksheet)Workbook.Sheets[index];
-				}
-				else
-				{
-					throw new ApplicationException("The index starts with 1. Not 0.");
-				}
-			}
-		}
+        #region Indexer and selector
+        /// <summary>
+        /// Note to dev: remember that the index starts from 1 NOT 0!
+        /// </summary>
+        /// <param name="index">Index is the index of the sheet.</param>
+        /// <returns></returns>
+        public _Worksheet this[int index]
+        {
+            get
+            {
+                if (index > 0)
+                {
+                    return (_Worksheet)Workbook.Sheets[index];
+                }
+                else
+                {
+                    throw new ApplicationException("The index starts with 1. Not 0.");
+                }
+            }
+        }
 
-		public void Select(int index)
-		{
-			CurrentWorksheet = this[index];
-			ExcelRange = CurrentWorksheet.UsedRange;
+        public void Select(int index)
+        {
+            CurrentWorksheet = this[index];
+            ExcelRange = CurrentWorksheet.UsedRange;
             SelectedSheetIndex = index;
-		}
+        }
+        #endregion
 
-		/// <summary>
-		/// Because you need to release com objects to close the excel app 
-		/// (to prevent it from running in the background).
-		/// </summary>
-		public void Close()
-		{
-			Marshal.ReleaseComObject(ExcelRange);
-			Marshal.ReleaseComObject(CurrentWorksheet);
+        #region Closing stream and destructor
+        /// <summary>
+        /// Because you need to release com objects to close the excel app 
+        /// (to prevent it from running in the background).
+        /// </summary>
+        public void Close()
+        {
+            Marshal.ReleaseComObject(ExcelRange);
+            Marshal.ReleaseComObject(CurrentWorksheet);
 
-			Workbook.Close();
-			Marshal.ReleaseComObject(Workbook);
+            Workbook.Close();
+            Marshal.ReleaseComObject(Workbook);
 
-			ExcelApp.Quit();
-			Marshal.ReleaseComObject(ExcelApp);
-		}
+            ExcelApp.Quit();
+            Marshal.ReleaseComObject(ExcelApp);
+        }
 
-		/// <summary>
-		/// This destructor is called when the program exits.
-		/// </summary>
-		~ExcelStream()
-		{
+        /// <summary>
+        /// This destructor is called when the program exits.
+        /// </summary>
+        ~ExcelStream()
+        {
             try
             {
                 this.Close();
@@ -173,30 +180,43 @@ namespace Drag_n_chart_core
             catch
             {
             }
-		}
+        }
+        #endregion
 
-		/// <summary>
-		/// This will get the data in the cells. Assumes that the sheet is selected first.
-		/// </summary>
-		/// <param name="rowIndex">Row</param>
-		/// <param name="columnIndex">Column</param>
-		/// <returns></returns>
-		public object GetCellData(int rowIndex, int columnIndex)
-		{
-			return (CurrentWorksheet.Cells[rowIndex, columnIndex] as Range).Text;
-		}
+        #region Parsing data
+        /// <summary>
+        /// This will get the data in the cells. Assumes that the sheet is selected first.
+        /// </summary>
+        /// <param name="rowIndex">Row</param>
+        /// <param name="columnIndex">Column</param>
+        /// <returns></returns>
+        public object GetCellData(int rowIndex, int columnIndex)
+        {
+            return (CurrentWorksheet.Cells[rowIndex, columnIndex] as Range).Text;
+        }
 
-		public object GetCellData(Tuple<int, int> index)
-		{
-			return GetCellData(index.Item1, index.Item2);
-		}
+        public object GetCellData(int rowIndex, int columnIndex, bool getData)
+        {
+            if (getData)
+                return (CurrentWorksheet.Cells[rowIndex, columnIndex] as Range).Value;
+            else
+                return GetCellData(rowIndex, columnIndex);
+        }
 
-		/// <summary>
-		/// This will parse all the data from the current sheet. It assumes that the sheet has been selected.
-		/// </summary>
-		/// <returns></returns>
-		public Readings GetAllSheetData()
-		{
+        public object GetCellData(Tuple<int, int> index, bool getData = false)
+        {
+            if (!getData)
+                return GetCellData(index.Item1, index.Item2);
+            else
+                return GetCellData(index.Item1, index.Item2, true);
+        }
+
+        /// <summary>
+        /// This will parse all the data from the current sheet. It assumes that the sheet has been selected.
+        /// </summary>
+        /// <returns></returns>
+        public Readings GetAllSheetData()
+        {
             try
             {
                 Workbook.RefreshAll(); //This will update the dates to match the default culture of the computer.
@@ -205,7 +225,7 @@ namespace Drag_n_chart_core
                 var currentIndex = dataStart;
                 currentIndex = new Tuple<int, int>(currentIndex.Item1 + 1, currentIndex.Item2); //Skips the first row because it's the headings.
 
-                DateTime? currentDate = (DateTime?)DateTime.Parse(GetCellData(currentIndex).ToString());
+                DateTime? currentDate = (DateTime?)GetCellData(currentIndex, true);
 
                 List<DataItem> dataItems = new List<DataItem>();
 
@@ -270,24 +290,30 @@ namespace Drag_n_chart_core
                     currentIndex = new Tuple<int, int>(currentIndex.Item1 + 1, currentIndex.Item2); //Increment the row number by 1.
 
                     currentDate = (!isEmpty(currentIndex.Item1, currentIndex.Item2)) ?
-                    (DateTime?)DateTime.Parse(GetCellData(currentIndex).ToString()) : null;
+                    (DateTime?)GetCellData(currentIndex, true) : null;
                 }
 
-                return new Readings() { DataItems = dataItems.ToArray() };
+                Readings toRet = new Readings() { DataItems = dataItems.ToArray() };
+                toRet.LoadComments(Comments); //This will load the comments
+                return toRet;
             }
             catch (FormatException ex)
             {
-				//Can't expect the data to be perfectly entered.
+                //Can't expect the data to be perfectly entered.
                 throw new FormatException($"There was an error in parsing the data. " +
-					$"\nThe data may not have been entered properly (maybe there are two decimal points instead of one?). " +
-					$"\n{ex.Data}");
+                    $"\nThe data may not have been entered properly (maybe there are two decimal points instead of one?). " +
+                    $"\n{ex.Data}");
             }
-			catch
+            catch
             {
-				throw;
+                throw;
             }
-		}
+        } 
+        #endregion
 
+        /// <summary>
+        /// This is run when deserialising.
+        /// </summary>
         public void Load()
         {
             ExcelApp = new Application() { Visible = true };

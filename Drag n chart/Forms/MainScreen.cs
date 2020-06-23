@@ -11,16 +11,13 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using Input = System.Windows.Input;
 
 namespace Drag_n_chart.Forms
 {
     public partial class MainScreen : Form
     {
-        //todo select all.
-        //todo 2 scales
-        //todo comments
-        //todo Make clear which sheet is selected.
         /// <summary>
         /// This property can be exported as a project.
         /// </summary>
@@ -39,6 +36,7 @@ namespace Drag_n_chart.Forms
         public MainScreen()
         {
             InitializeComponent();
+            this.Icon = Resources.ggt_logo_icon;
             SelectSheet.UpdateReadings += OnUpdateReadings;
             mainChart.MouseWheel += MainChart_MouseWheel;
 
@@ -52,7 +50,7 @@ namespace Drag_n_chart.Forms
                     //When a file is dragged onto the program, it will launch the program with args.
                     //In the main program class, I encapsulate those args.
                     LoadExcelFile(Program.MainArgs[0]);
-                    LoadChart(); 
+                    LoadChart();
                 }
                 else
                 {
@@ -142,33 +140,154 @@ namespace Drag_n_chart.Forms
             this.Text += " - Loading chart...";
 
             if (!IsChartEmpty)
-                //It will use as many threads and CPU cores as possible.
-                Parallel.ForEach(mainChart.Series, series => this.Invoke((MethodInvoker)(() => series.Points.Clear())));
-
+                foreach (var series in mainChart.Series)
+                {
+                    series.Points.Clear();
+                }
+            
             foreach (var dataPoint in ((Readings)WorkingProject.ReadingsData).DataItems)
             {
+                string dateString;
+
+                try
+                {
+                    DateTime date = ((DateTime)dataPoint.Date).Date;
+                    dateString = $"{date.Day}/{date.Month}/{date.Year}";
+                }
+                catch
+                {
+                    dateString = "";
+                }
+
                 //Sometimes, if there is a null value, it can throw an error. 
-                try { mainChart.Series["pH"].Points.AddXY(dataPoint.Date, dataPoint.pH); } catch { };
-                try { mainChart.Series["Eh (mV)"].Points.AddXY(dataPoint.Date, dataPoint.Eh); } catch { };
-                try { mainChart.Series["Density (g/ml)"].Points.AddXY(dataPoint.Date, dataPoint.Density); } catch { };
-                try { mainChart.Series["DO (mg/l)"].Points.AddXY(dataPoint.Date, dataPoint.DO); } catch { };
-                try { mainChart.Series["T-atm (°C)"].Points.AddXY(dataPoint.Date, dataPoint.T_atm); } catch { };
-                try { mainChart.Series["T-Wat (°C)"].Points.AddXY(dataPoint.Date, dataPoint.T_wat); } catch { };
-                try { mainChart.Series["Ag (ppm)"].Points.AddXY(dataPoint.Date, dataPoint.Ag); } catch { };
-                try { mainChart.Series["Au (ppm)"].Points.AddXY(dataPoint.Date, dataPoint.Au); } catch { };
-                try { mainChart.Series["Cl- (ppm)"].Points.AddXY(dataPoint.Date, dataPoint.Cl_minus); } catch { };
-                try { mainChart.Series["Cl2 (ppm)"].Points.AddXY(dataPoint.Date, dataPoint.Cl2); } catch { };
-                try { mainChart.Series["Co (ppm)"].Points.AddXY(dataPoint.Date, dataPoint.Co); } catch { };
-                try { mainChart.Series["Cu (ppm)"].Points.AddXY(dataPoint.Date, dataPoint.Cu); } catch { };
-                try { mainChart.Series["Ni (ppm)"].Points.AddXY(dataPoint.Date, dataPoint.Ni); } catch { };
-                try { mainChart.Series["Fe (ppm)"].Points.AddXY(dataPoint.Date, dataPoint.Fe); } catch { };
-                try { mainChart.Series["SO4 (2- ions) (ppm)"].Points.AddXY(dataPoint.Date, dataPoint.SO4_2minus); } catch { };
+                try
+                {
+                    mainChart.Series["pH"].Points.AddXY(dataPoint.Date, dataPoint.pH);
+                    mainChart.Series["pH"].Points.Last().ToolTip = $"Date: {dateString}, Value: {dataPoint.pH},\n{dataPoint.Comment}";
+                    
+                }
+                catch 
+                { };
+
+                try
+                {
+                    mainChart.Series["Eh (mV)"].Points.AddXY(dataPoint.Date, dataPoint.Eh);
+                    mainChart.Series["Eh (mV)"].Points.Last().ToolTip = $"Date: {dateString}, Value: {dataPoint.Eh},\n{dataPoint.Comment}";
+                }
+                catch 
+                { };
+
+                try
+                {
+                    mainChart.Series["Density (g/ml)"].Points.AddXY(dataPoint.Date, dataPoint.Density);
+                    mainChart.Series["Density (g/ml)"].Points.Last().ToolTip = 
+                        $"Date: {dateString}, Value: {dataPoint.Density},\n{dataPoint.Comment}";
+                }
+                catch 
+                { };
+
+                try
+                {
+                    mainChart.Series["DO (mg/l)"].Points.AddXY(dataPoint.Date, dataPoint.DO);
+                    mainChart.Series["DO (mg/l)"].Points.Last().ToolTip = $"Date: {dateString}, Value: {dataPoint.DO},\n{dataPoint.Comment}";
+                }
+                catch
+                { };
+
+                try
+                {
+                    mainChart.Series["T-atm (°C)"].Points.AddXY(dataPoint.Date, dataPoint.T_atm);
+                    mainChart.Series["T-atm (°C)"].Points.Last().ToolTip = $"Date: {dateString}, Value: {dataPoint.T_atm},\n{dataPoint.Comment}";
+                }
+                catch
+                { };
+
+                try
+                {
+                    mainChart.Series["T-Wat (°C)"].Points.AddXY(dataPoint.Date, dataPoint.T_wat);
+                    mainChart.Series["T-Wat (°C)"].Points.Last().ToolTip = $"Date: {dateString}, Value: {dataPoint.T_wat},\n{dataPoint.Comment}";
+                }
+                catch
+                { };
+
+                try
+                {
+                    mainChart.Series["Ag (ppm)"].Points.AddXY(dataPoint.Date, dataPoint.Ag);
+                    mainChart.Series["Ag (ppm)"].Points.Last().ToolTip = $"Date: {dateString}, Value: {dataPoint.Ag},\n{dataPoint.Comment}";
+                }
+                catch
+                { };
+
+                try
+                {
+                    mainChart.Series["Au (ppm)"].Points.AddXY(dataPoint.Date, dataPoint.Au);
+                    mainChart.Series["Au (ppm)"].Points.Last().ToolTip = $"Date: {dateString}, Value: {dataPoint.Au},\n{dataPoint.Comment}";
+                }
+                catch
+                { };
+
+                try
+                {
+                    mainChart.Series["Cl- (ppm)"].Points.AddXY(dataPoint.Date, dataPoint.Cl_minus);
+                    mainChart.Series["Cl- (ppm)"].Points.Last().ToolTip = $"Date: {dateString}, Value: {dataPoint.Cl_minus},\n{dataPoint.Comment}";
+                }
+                catch
+                { };
+
+                try
+                {
+                    mainChart.Series["Cl2 (ppm)"].Points.AddXY(dataPoint.Date, dataPoint.Cl2);
+                    mainChart.Series["Cl2 (ppm)"].Points.Last().ToolTip = $"Date: {dateString}, Value: {dataPoint.Cl2},\n{dataPoint.Comment}";
+                }
+                catch
+                { };
+
+                try
+                {
+                    mainChart.Series["Co (ppm)"].Points.AddXY(dataPoint.Date, dataPoint.Co);
+                    mainChart.Series["Co (ppm)"].Points.Last().ToolTip = $"Date: {dateString}, Value: {dataPoint.Co},\n{dataPoint.Comment}";
+                }
+                catch
+                { };
+
+                try
+                {
+                    mainChart.Series["Cu (ppm)"].Points.AddXY(dataPoint.Date, dataPoint.Cu);
+                    mainChart.Series["Cu (ppm)"].Points.Last().ToolTip = $"Date: {dateString}, Value: {dataPoint.Cu},\n{dataPoint.Comment}";
+                }
+                catch
+                { };
+
+                try
+                {
+                    mainChart.Series["Ni (ppm)"].Points.AddXY(dataPoint.Date, dataPoint.Ni);
+                    mainChart.Series["Ni (ppm)"].Points.Last().ToolTip = $"Date: {dateString}, Value: {dataPoint.Ni},\n{dataPoint.Comment}";
+                }
+                catch
+                { };
+
+                try
+                {
+                    mainChart.Series["Fe (ppm)"].Points.AddXY(dataPoint.Date, dataPoint.Fe);
+                    mainChart.Series["Fe (ppm)"].Points.Last().ToolTip = $"Date: {dateString}, Value: {dataPoint.Fe},\n{dataPoint.Comment}";
+                }
+                catch
+                { };
+
+                try
+                {
+                    mainChart.Series["SO4 (2- ions) (ppm)"].Points.AddXY(dataPoint.Date, dataPoint.SO4_2minus);
+                    mainChart.Series["SO4 (2- ions) (ppm)"].Points.Last().ToolTip =
+                        $"Date: {dateString}, Value: {dataPoint.SO4_2minus},\n{dataPoint.Comment}";
+                }
+                catch
+                { };
+
             }
 
+            mainChart.Titles.First().Text = WorkingProject.ExcelStream.CurrentWorksheet.Name;
             this.Text = "Drag n chart";
-
             IsChartEmpty = false;
-
         }
 
         /// <summary>
@@ -216,11 +335,13 @@ namespace Drag_n_chart.Forms
             {
                 MessageBox.Show(ex.Message, "Error during loading of data",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Text = "Drag n chart";
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error during loading of data",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Text = "Drag n chart";
             }
         }
 
@@ -232,7 +353,7 @@ namespace Drag_n_chart.Forms
         {
             WorkingProject.ExcelStream.Select(sheetIndex);
         }
-        
+
         private void sheetToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -543,7 +664,7 @@ namespace Drag_n_chart.Forms
         private void saveProjectDialog_FileOk(object sender, CancelEventArgs e)
         {
             WorkingProject.Save(saveProjectDialog.FileName);
-        } 
+        }
         #endregion
         #endregion
 
@@ -564,7 +685,7 @@ namespace Drag_n_chart.Forms
 
             if (WorkingProject.ReadingsData != null)
             {
-                LoadChart(); 
+                LoadChart();
             }
         }
 
@@ -579,6 +700,49 @@ namespace Drag_n_chart.Forms
             Help win = new Help();
             win.BringToFront();
             win.Show();
+        }
+
+        private void viewAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            viewAllToolStripMenuItem.Checked = !viewAllToolStripMenuItem.Checked;
+
+            ToolStripMenuItem[] menuItems = new ToolStripMenuItem[]
+                {
+                    pHToolStripMenuItem,
+                    ehToolStripMenuItem,
+                    densityToolStripMenuItem,
+                    dOToolStripMenuItem,
+                    tatmToolStripMenuItem,
+                    twatToolStripMenuItem,
+                    agToolStripMenuItem,
+                    auToolStripMenuItem,
+                    clToolStripMenuItem,
+                    cl2ToolStripMenuItem,
+                    coToolStripMenuItem,
+                    niToolStripMenuItem,
+                    feToolStripMenuItem,
+                    sO42ToolStripMenuItem,
+                    cuToolStripMenuItem
+                };
+
+            switch (viewAllToolStripMenuItem.Checked)
+            {
+                case true:
+                    Parallel.ForEach(menuItems, menuItem =>
+                    {
+                        if (!menuItem.Checked)
+                            this.Invoke((MethodInvoker)(() => menuItem.PerformClick()));
+                    });
+                    break;
+
+                case false:
+                    Parallel.ForEach(menuItems, menuItem =>
+                    {
+                        if (menuItem.Checked)
+                            this.Invoke((MethodInvoker)(() => menuItem.PerformClick()));
+                    });
+                    break;
+            }
         }
     }
 }

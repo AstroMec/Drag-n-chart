@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Drag_n_chart_core
 {
-    public struct DataItem
+    public class DataItem
     {
         public DateTime? Date { get; set; }
 
@@ -42,6 +42,8 @@ namespace Drag_n_chart_core
                      
         public double? SO4_2minus { get; set; } //(ppm)
 
+        public CommentItem? Comment { get; set; } //This will get all the data for the comments of that day.
+
     }
 
     public struct Readings
@@ -60,14 +62,29 @@ namespace Drag_n_chart_core
                 return DataItems.AsParallel().Where(d => d.Equals(date)).FirstOrDefault();
             }
         }
+        
 
-        /// <summary>
-        /// This will enable me to iterate through this data structure.
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerator<Array> GetEnumerator()
+        public void LoadComments(TempCommentHolders tempComments)
         {
-            return (IEnumerator<Array>)DataItems.GetEnumerator();
+            int ind = 0;
+
+            foreach (var item in this.DataItems)
+            {
+                var query = tempComments.Items.AsParallel().Where(comment => comment.Date == item.Date).FirstOrDefault();
+
+                if (!query.Equals(default(TempCommentHolder)))
+                {
+                    item.Comment =
+                                new CommentItem()
+                                {
+                                    Time = query.Time,
+                                    Comment = query.Comment,
+                                    AfternoonFlow = query.AfternoonFlow,
+                                    MorningFlow = query.MorningFlow
+                                }; 
+                }
+                ind++;
+            }
         }
     }
 }

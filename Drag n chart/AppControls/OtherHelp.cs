@@ -20,6 +20,7 @@ namespace Drag_n_chart.AppControls
         private void OtherHelp_Load(object sender, EventArgs e)
         {
             scrollZoomDescr.MaximumSize = new Size(this.Size.Width, 0);
+            viewingCommentsDescr.MaximumSize = new Size(this.Size.Width, 0);
         }
     }
 }

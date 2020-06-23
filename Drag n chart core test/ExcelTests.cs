@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 
 
+
 namespace Drag_n_chart_core_test
 {
     [TestClass]
@@ -76,6 +77,16 @@ namespace Drag_n_chart_core_test
 
             xlsxfile.Select(4);
             var test = xlsxfile.GetAllSheetData();
+            xlsxfile.Close();
+        }
+
+        [TestMethod]
+        public void GetDateTest()
+        {
+            ExcelStream xlsxfile = new ExcelStream(@"C:\Users\maxgr\OneDrive\Documents\Fiverr\C#\Drag n chart\Sample data\Data Template 2b.xlsx");
+
+            xlsxfile.Select(4);
+            var test = (string)xlsxfile.GetCellData(3, 2, true);
         }
     }
 }
