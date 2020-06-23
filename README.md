@@ -1,4 +1,4 @@
-Drag n Chart v0.1
+Drag n Chart
 ====================================================
 
 Below are the end-user terms and these must be accepted in order to use the software:
@@ -17,3 +17,6 @@ Change notes:
 + 1.0:
 	+ The comments interpretation was added.
 	+ The file structure was re-organised.
+	
++ 1.0.1:
+	+ Fixed a bug that caused the program to freeze when view all was pressed.

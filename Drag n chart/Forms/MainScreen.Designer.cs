@@ -86,6 +86,7 @@
             // 
             // menuStrip
             // 
+            this.menuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -94,7 +95,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1645, 40);
+            this.menuStrip.Size = new System.Drawing.Size(1645, 42);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -105,7 +106,7 @@
             this.saveToolStripMenuItem,
             this.exportToImageToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(72, 36);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(72, 38);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // openToolStripMenuItem
@@ -153,7 +154,7 @@
             this.toolStripSeparator1,
             this.dataLabelsToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(86, 36);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(86, 38);
             this.viewToolStripMenuItem.Text = "&View";
             // 
             // pHToolStripMenuItem
@@ -161,7 +162,7 @@
             this.pHToolStripMenuItem.Checked = true;
             this.pHToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.pHToolStripMenuItem.Name = "pHToolStripMenuItem";
-            this.pHToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
+            this.pHToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.pHToolStripMenuItem.Text = "pH";
             this.pHToolStripMenuItem.Click += new System.EventHandler(this.pHToolStripMenuItem_Click);
             // 
@@ -170,7 +171,7 @@
             this.ehToolStripMenuItem.Checked = true;
             this.ehToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ehToolStripMenuItem.Name = "ehToolStripMenuItem";
-            this.ehToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
+            this.ehToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.ehToolStripMenuItem.Text = "Eh";
             this.ehToolStripMenuItem.Click += new System.EventHandler(this.ehToolStripMenuItem_Click);
             // 
@@ -179,7 +180,7 @@
             this.densityToolStripMenuItem.Checked = true;
             this.densityToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.densityToolStripMenuItem.Name = "densityToolStripMenuItem";
-            this.densityToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
+            this.densityToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.densityToolStripMenuItem.Text = "Density";
             this.densityToolStripMenuItem.Click += new System.EventHandler(this.densityToolStripMenuItem_Click);
             // 
@@ -188,7 +189,7 @@
             this.dOToolStripMenuItem.Checked = true;
             this.dOToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.dOToolStripMenuItem.Name = "dOToolStripMenuItem";
-            this.dOToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
+            this.dOToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.dOToolStripMenuItem.Text = "DO";
             this.dOToolStripMenuItem.Click += new System.EventHandler(this.dOToolStripMenuItem_Click);
             // 
@@ -197,7 +198,7 @@
             this.tatmToolStripMenuItem.Checked = true;
             this.tatmToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tatmToolStripMenuItem.Name = "tatmToolStripMenuItem";
-            this.tatmToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
+            this.tatmToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.tatmToolStripMenuItem.Text = "T-atm";
             this.tatmToolStripMenuItem.Click += new System.EventHandler(this.tatmToolStripMenuItem_Click);
             // 
@@ -206,7 +207,7 @@
             this.twatToolStripMenuItem.Checked = true;
             this.twatToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.twatToolStripMenuItem.Name = "twatToolStripMenuItem";
-            this.twatToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
+            this.twatToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.twatToolStripMenuItem.Text = "T-wat";
             this.twatToolStripMenuItem.Click += new System.EventHandler(this.twatToolStripMenuItem_Click);
             // 
@@ -215,7 +216,7 @@
             this.agToolStripMenuItem.Checked = true;
             this.agToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.agToolStripMenuItem.Name = "agToolStripMenuItem";
-            this.agToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
+            this.agToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.agToolStripMenuItem.Text = "Ag";
             this.agToolStripMenuItem.Click += new System.EventHandler(this.agToolStripMenuItem_Click);
             // 
@@ -224,7 +225,7 @@
             this.auToolStripMenuItem.Checked = true;
             this.auToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.auToolStripMenuItem.Name = "auToolStripMenuItem";
-            this.auToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
+            this.auToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.auToolStripMenuItem.Text = "Au";
             this.auToolStripMenuItem.Click += new System.EventHandler(this.auToolStripMenuItem_Click);
             // 
@@ -233,14 +234,14 @@
             this.clToolStripMenuItem.Checked = true;
             this.clToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.clToolStripMenuItem.Name = "clToolStripMenuItem";
-            this.clToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
+            this.clToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.clToolStripMenuItem.Text = "Cl-";
             this.clToolStripMenuItem.Click += new System.EventHandler(this.clToolStripMenuItem_Click);
             // 
             // cl2ToolStripMenuItem
             // 
             this.cl2ToolStripMenuItem.Name = "cl2ToolStripMenuItem";
-            this.cl2ToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
+            this.cl2ToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.cl2ToolStripMenuItem.Text = "Cl2";
             this.cl2ToolStripMenuItem.Click += new System.EventHandler(this.cl2ToolStripMenuItem_Click);
             // 
@@ -249,7 +250,7 @@
             this.coToolStripMenuItem.Checked = true;
             this.coToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.coToolStripMenuItem.Name = "coToolStripMenuItem";
-            this.coToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
+            this.coToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.coToolStripMenuItem.Text = "Co";
             this.coToolStripMenuItem.Click += new System.EventHandler(this.coToolStripMenuItem_Click);
             // 
@@ -258,7 +259,7 @@
             this.cuToolStripMenuItem.Checked = true;
             this.cuToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cuToolStripMenuItem.Name = "cuToolStripMenuItem";
-            this.cuToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
+            this.cuToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.cuToolStripMenuItem.Text = "Cu";
             this.cuToolStripMenuItem.Click += new System.EventHandler(this.cuToolStripMenuItem_Click);
             // 
@@ -267,21 +268,21 @@
             this.niToolStripMenuItem.Checked = true;
             this.niToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.niToolStripMenuItem.Name = "niToolStripMenuItem";
-            this.niToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
+            this.niToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.niToolStripMenuItem.Text = "Ni";
             this.niToolStripMenuItem.Click += new System.EventHandler(this.niToolStripMenuItem_Click);
             // 
             // feToolStripMenuItem
             // 
             this.feToolStripMenuItem.Name = "feToolStripMenuItem";
-            this.feToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
+            this.feToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.feToolStripMenuItem.Text = "Fe";
             this.feToolStripMenuItem.Click += new System.EventHandler(this.feToolStripMenuItem_Click);
             // 
             // sO42ToolStripMenuItem
             // 
             this.sO42ToolStripMenuItem.Name = "sO42ToolStripMenuItem";
-            this.sO42ToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
+            this.sO42ToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.sO42ToolStripMenuItem.Text = "SO4 (2-)";
             this.sO42ToolStripMenuItem.Click += new System.EventHandler(this.sO42ToolStripMenuItem_Click);
             // 
@@ -289,19 +290,19 @@
             // 
             this.viewAllToolStripMenuItem.Name = "viewAllToolStripMenuItem";
             this.viewAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.viewAllToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
+            this.viewAllToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.viewAllToolStripMenuItem.Text = "View all";
             this.viewAllToolStripMenuItem.Click += new System.EventHandler(this.viewAllToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(311, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(356, 6);
             // 
             // dataLabelsToolStripMenuItem
             // 
             this.dataLabelsToolStripMenuItem.Name = "dataLabelsToolStripMenuItem";
-            this.dataLabelsToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
+            this.dataLabelsToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.dataLabelsToolStripMenuItem.Text = "Data labels";
             this.dataLabelsToolStripMenuItem.Click += new System.EventHandler(this.dataLabelsToolStripMenuItem_Click);
             // 
@@ -311,27 +312,27 @@
             this.importExcelFileToolStripMenuItem,
             this.sheetToolStripMenuItem});
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
-            this.dataToolStripMenuItem.Size = new System.Drawing.Size(84, 36);
+            this.dataToolStripMenuItem.Size = new System.Drawing.Size(84, 38);
             this.dataToolStripMenuItem.Text = "&Data";
             // 
             // importExcelFileToolStripMenuItem
             // 
             this.importExcelFileToolStripMenuItem.Name = "importExcelFileToolStripMenuItem";
-            this.importExcelFileToolStripMenuItem.Size = new System.Drawing.Size(336, 44);
+            this.importExcelFileToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.importExcelFileToolStripMenuItem.Text = "Import excel file...";
             this.importExcelFileToolStripMenuItem.Click += new System.EventHandler(this.importExcelFileToolStripMenuItem_Click);
             // 
             // sheetToolStripMenuItem
             // 
             this.sheetToolStripMenuItem.Name = "sheetToolStripMenuItem";
-            this.sheetToolStripMenuItem.Size = new System.Drawing.Size(336, 44);
+            this.sheetToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.sheetToolStripMenuItem.Text = "Select sheet";
             this.sheetToolStripMenuItem.Click += new System.EventHandler(this.sheetToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(85, 36);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(85, 38);
             this.helpToolStripMenuItem.Text = "&Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
@@ -370,7 +371,7 @@
             this.mainChart.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
             this.mainChart.Legends.Add(legend1);
-            this.mainChart.Location = new System.Drawing.Point(0, 40);
+            this.mainChart.Location = new System.Drawing.Point(0, 42);
             this.mainChart.Name = "mainChart";
             this.mainChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
             series1.ChartArea = "ChartArea1";
@@ -500,7 +501,7 @@
             this.mainChart.Series.Add(series13);
             this.mainChart.Series.Add(series14);
             this.mainChart.Series.Add(series15);
-            this.mainChart.Size = new System.Drawing.Size(1645, 1022);
+            this.mainChart.Size = new System.Drawing.Size(1645, 1020);
             this.mainChart.TabIndex = 1;
             this.mainChart.Text = "chart1";
             title1.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
@@ -514,9 +515,9 @@
             // chartArea
             // 
             this.chartArea.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartArea.Location = new System.Drawing.Point(0, 40);
+            this.chartArea.Location = new System.Drawing.Point(0, 42);
             this.chartArea.Name = "chartArea";
-            this.chartArea.Size = new System.Drawing.Size(1645, 1022);
+            this.chartArea.Size = new System.Drawing.Size(1645, 1020);
             this.chartArea.TabIndex = 2;
             // 
             // openProjectDialog

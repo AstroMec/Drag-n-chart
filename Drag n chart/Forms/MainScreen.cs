@@ -144,7 +144,7 @@ namespace Drag_n_chart.Forms
                 {
                     series.Points.Clear();
                 }
-            
+
             foreach (var dataPoint in ((Readings)WorkingProject.ReadingsData).DataItems)
             {
                 string dateString;
@@ -164,9 +164,9 @@ namespace Drag_n_chart.Forms
                 {
                     mainChart.Series["pH"].Points.AddXY(dataPoint.Date, dataPoint.pH);
                     mainChart.Series["pH"].Points.Last().ToolTip = $"Date: {dateString}, Value: {dataPoint.pH},\n{dataPoint.Comment}";
-                    
+
                 }
-                catch 
+                catch
                 { };
 
                 try
@@ -174,16 +174,16 @@ namespace Drag_n_chart.Forms
                     mainChart.Series["Eh (mV)"].Points.AddXY(dataPoint.Date, dataPoint.Eh);
                     mainChart.Series["Eh (mV)"].Points.Last().ToolTip = $"Date: {dateString}, Value: {dataPoint.Eh},\n{dataPoint.Comment}";
                 }
-                catch 
+                catch
                 { };
 
                 try
                 {
                     mainChart.Series["Density (g/ml)"].Points.AddXY(dataPoint.Date, dataPoint.Density);
-                    mainChart.Series["Density (g/ml)"].Points.Last().ToolTip = 
+                    mainChart.Series["Density (g/ml)"].Points.Last().ToolTip =
                         $"Date: {dateString}, Value: {dataPoint.Density},\n{dataPoint.Comment}";
                 }
-                catch 
+                catch
                 { };
 
                 try
@@ -728,19 +728,19 @@ namespace Drag_n_chart.Forms
             switch (viewAllToolStripMenuItem.Checked)
             {
                 case true:
-                    Parallel.ForEach(menuItems, menuItem =>
+                    foreach (var menuItem in menuItems)
                     {
                         if (!menuItem.Checked)
-                            this.Invoke((MethodInvoker)(() => menuItem.PerformClick()));
-                    });
+                            menuItem.PerformClick();
+                    }
                     break;
 
                 case false:
-                    Parallel.ForEach(menuItems, menuItem =>
+                    foreach (var menuItem in menuItems)
                     {
                         if (menuItem.Checked)
-                            this.Invoke((MethodInvoker)(() => menuItem.PerformClick()));
-                    });
+                            menuItem.PerformClick();
+                    }
                     break;
             }
         }
